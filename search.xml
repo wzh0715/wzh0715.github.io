@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>二叉树的遍历</title>
+    <url>/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<hr>
+<h4 id="二叉树的分类："><a href="#二叉树的分类：" class="headerlink" title="#二叉树的分类："></a>#二叉树的分类：</h4><p>完全二叉树</p>
+<p>满二叉树</p>
+<p>扩充二叉树</p>
+<p>平衡二叉树</p>
+<h4 id="二叉树四种遍历方式："><a href="#二叉树四种遍历方式：" class="headerlink" title="#二叉树四种遍历方式："></a>#二叉树四种遍历方式：</h4><p>前序遍历（根 -&gt; 左 -&gt; 右）</p>
+<p>中序遍历（左 -&gt; 根 -&gt; 右）</p>
+<p>后序遍历（左 -&gt; 右 -&gt; 根）</p>
+<p>层次遍历</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Bintree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Bintree Position</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">	Elemtype data;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//先序遍历    </span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PreOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(BT)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);    <span class="comment">//先访问根</span></span><br><span class="line">        PreOrderTraversal(BT-&gt;left); <span class="comment">//再访问左树</span></span><br><span class="line">        PreOrderTrabersal(BT-&gt;right);  <span class="comment">//最后访问右树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(BT)&#123;</span><br><span class="line">		InOrderTraversal(BT-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);    </span><br><span class="line">        InOrderTraversal(BT-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(BT)&#123;</span><br><span class="line">		PostOrderTraversal(BT-&gt;right);    </span><br><span class="line">        PostOrderTraversal(BT-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="#层序遍历"></a>#层序遍历</h3><h5 id="队列实现："><a href="#队列实现：" class="headerlink" title="队列实现："></a>队列实现：</h5><p>基本思路：根节点入队，读取根节点，根节点出队，左右节点入队，不断循环此过程，节点完全入队后不断出队</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Bintree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Bintree Position</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">	Elemtype data;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//队列实现</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 10000 <span class="comment">//最多元素个数</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">levelOrder</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT==<span class="literal">NULL</span>) <span class="keyword">return</span> ;</span><br><span class="line">	Bintree <span class="built_in">queue</span>[MAXSIZE]; <span class="comment">//创造一个队列</span></span><br><span class="line">    <span class="built_in">memset</span>(<span class="built_in">queue</span>,<span class="number">0</span>,<span class="keyword">sizeof</span>(Bintree));</span><br><span class="line">    <span class="type">int</span> front=<span class="number">0</span>;  <span class="comment">//设置队列的头</span></span><br><span class="line">    <span class="type">int</span> rear=<span class="number">0</span>;   <span class="comment">//设置队列的尾</span></span><br><span class="line">    <span class="built_in">queue</span>[rear++]=BT; </span><br><span class="line">    <span class="keyword">while</span>(front&lt;rear)&#123;  <span class="comment">//队列元素为空时退出循环</span></span><br><span class="line">		Bintree tmp=<span class="built_in">queue</span>[front++]; <span class="comment">//读取根节点并出队</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,Bintree-&gt;data);</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;left!=<span class="literal">NULL</span>)&#123;      <span class="comment">//左节点入队</span></span><br><span class="line">			<span class="built_in">queue</span>[rear++]=tmp-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;right!=<span class="literal">NULL</span>)&#123;  <span class="comment">//右节点入队</span></span><br><span class="line">			<span class="built_in">queue</span>[rear++]=tmp-&gt;right; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二叉树遍历的实际应用"><a href="#二叉树遍历的实际应用" class="headerlink" title="#二叉树遍历的实际应用"></a>#二叉树遍历的实际应用</h4><h5 id="求二叉树的高度"><a href="#求二叉树的高度" class="headerlink" title="求二叉树的高度"></a>求二叉树的高度</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">height</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">	<span class="type">int</span> HL,HR,MAXH;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">    	HL = height(BT-&gt;left); <span class="comment">//左树的深度</span></span><br><span class="line">    	HR = height(BT-&gt;right); <span class="comment">//右树的深度</span></span><br><span class="line">        MAXH=HL&gt;HR?HL:HR; <span class="comment">//该节点向下的最大深度</span></span><br><span class="line">        <span class="keyword">return</span> MAXH+<span class="number">1</span>;  <span class="comment">//最大深度加上这层</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>datastruct</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>哈希表</title>
+    <url>/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
+    <content><![CDATA[<hr>
+<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法<br><img src="数据结构-哈希表/1.jpg"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>自我介绍</title>
+    <url>/2022/04/13/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h3 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h3><p>本人大一学生，来自电子科技大学，纯纯菜狗一个</p>
+<p>想互相交流学习的可以加我联系方式：<br>QQ号：3428866199</p>
+<p>手机号：15805691178</p>
+<p>我们可以相互学习，共同成长😍😊</p>
+]]></content>
+      <tags>
+        <tag>about</tag>
+      </tags>
+  </entry>
+</search>
