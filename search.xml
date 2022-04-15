@@ -32,25 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>程序员的自我修养-栈</title>
-    <url>/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
-    <content><![CDATA[<hr>
-<p>程序员自我修养：关于栈的知识</p>
-<span id="more"></span>
-
-<p>程序员的自我修养</p>
-<p>栈：面向过程</p>
-<p>1.函数的调用惯例：(P317)<br>*参数的传递顺序和方式<br>*栈的维护方式<br>*名字修饰 -&gt;调用惯例的类型(cdecl,stdcall,fastcall)</p>
-<p>2.函数返回值的传递（隐含参数）<br>值小于8字节时：<br>eax（4 bytes）:可用来储存函数返回值<br>eax+ ebx -&gt;存储5-8 字节的值<br>值大于8字节时：（eax作为指针指向临时对象）<br>*主函数在初始时为返回值开辟栈上的空间，作为临时对象temp<br>*将作为temp地址作为隐含参数传递到子函数中<br>*子函数调用时将数据拷贝给temp，并用eax传出temp地址<br>*子函数返回后，主函数将eax指向的temp内容拷贝给n<br>(n为接受返回值的变量)</p>
-]]></content>
-      <categories>
-        <category>程序员的自我修养</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>哈希表</title>
     <url>/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
     <content><![CDATA[<hr>
@@ -64,6 +45,25 @@
 ]]></content>
       <categories>
         <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序员的自我修养-栈</title>
+    <url>/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
+    <content><![CDATA[<hr>
+<p>程序员自我修养：关于栈的知识</p>
+<span id="more"></span>
+
+<p>程序员的自我修养</p>
+<p>栈：面向过程</p>
+<p>1.函数的调用惯例：(P317)<br>*参数的传递顺序和方式<br>*栈的维护方式<br>*名字修饰 -&gt;调用惯例的类型(cdecl,stdcall,fastcall)</p>
+<p>2.函数返回值的传递（隐含参数）<br>值小于8字节时：<br>eax（4 bytes）:可用来储存函数返回值<br>eax+ ebx -&gt;存储5-8 字节的值<br>值大于8字节时：（eax作为指针指向临时对象）<br>*主函数在初始时为返回值开辟栈上的空间，作为临时对象temp<br>*将作为temp地址作为隐含参数传递到子函数中<br>*子函数调用时将数据拷贝给temp，并用eax传出temp地址<br>*子函数返回后，主函数将eax指向的temp内容拷贝给n<br>(n为接受返回值的变量)</p>
+]]></content>
+      <categories>
+        <category>程序员的自我修养</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>

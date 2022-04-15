@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BLOG</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-04-15T05:39:43.050Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>wzh</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序员的自我修养-栈</title>
+    <link href="http://example.com/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
+    <id>http://example.com/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</id>
+    <published>2022-04-15T05:31:21.900Z</published>
+    <updated>2022-04-15T05:39:43.050Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>程序员自我修养：关于栈的知识</p><span id="more"></span><p>程序员的自我修养</p><p>栈：面向过程</p><p>1.函数的调用惯例：(P317)<br>*参数的传递顺序和方式<br>*栈的维护方式<br>*名字修饰 -&gt;调用惯例的类型(cdecl,stdcall,fastcall)</p><p>2.函数返回值的传递（隐含参数）<br>值小于8字节时：<br>eax（4 bytes）:可用来储存函数返回值<br>eax+ ebx -&gt;存储5-8 字节的值<br>值大于8字节时：（eax作为指针指向临时对象）<br>*主函数在初始时为返回值开辟栈上的空间，作为临时对象temp<br>*将作为temp地址作为隐含参数传递到子函数中<br>*子函数调用时将数据拷贝给temp，并用eax传出temp地址<br>*子函数返回后，主函数将eax指向的temp内容拷贝给n<br>(n为接受返回值的变量)</p>]]></content>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;程序员自我修养：关于栈的知识&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="程序员的自我修养" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
+    
+    
+    <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树的遍历</title>
+    <link href="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <published>2022-04-15T03:13:42.720Z</published>
+    <updated>2022-04-15T05:40:30.250Z</updated>
+    
+    <content type="html"><![CDATA[<hr><hr><p>简单介绍二叉树</p><span id="more"></span><h4 id="二叉树的分类："><a href="#二叉树的分类：" class="headerlink" title="#二叉树的分类："></a>#二叉树的分类：</h4><p>完全二叉树</p><p>满二叉树</p><p>扩充二叉树</p><p>平衡二叉树</p><h4 id="二叉树四种遍历方式："><a href="#二叉树四种遍历方式：" class="headerlink" title="#二叉树四种遍历方式："></a>#二叉树四种遍历方式：</h4><p>前序遍历（根 -&gt; 左 -&gt; 右）</p><p>中序遍历（左 -&gt; 根 -&gt; 右）</p><p>后序遍历（左 -&gt; 右 -&gt; 根）</p><p>层次遍历</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Bintree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Bintree Position</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">Elemtype data;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//先序遍历    </span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PreOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(BT)&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);    <span class="comment">//先访问根</span></span><br><span class="line">        PreOrderTraversal(BT-&gt;left); <span class="comment">//再访问左树</span></span><br><span class="line">        PreOrderTrabersal(BT-&gt;right);  <span class="comment">//最后访问右树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(BT)&#123;</span><br><span class="line">InOrderTraversal(BT-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);    </span><br><span class="line">        InOrderTraversal(BT-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrderTraversal</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(BT)&#123;</span><br><span class="line">PostOrderTraversal(BT-&gt;right);    </span><br><span class="line">        PostOrderTraversal(BT-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,BT-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="#层序遍历"></a>#层序遍历</h3><h5 id="队列实现："><a href="#队列实现：" class="headerlink" title="队列实现："></a>队列实现：</h5><p>基本思路：根节点入队，读取根节点，根节点出队，左右节点入队，不断循环此过程，节点完全入队后不断出队</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Bintree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Bintree Position</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">Elemtype data;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//队列实现</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 10000 <span class="comment">//最多元素个数</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">levelOrder</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT==<span class="literal">NULL</span>) <span class="keyword">return</span> ;</span><br><span class="line">Bintree <span class="built_in">queue</span>[MAXSIZE]; <span class="comment">//创造一个队列</span></span><br><span class="line">    <span class="built_in">memset</span>(<span class="built_in">queue</span>,<span class="number">0</span>,<span class="keyword">sizeof</span>(Bintree));</span><br><span class="line">    <span class="type">int</span> front=<span class="number">0</span>;  <span class="comment">//设置队列的头</span></span><br><span class="line">    <span class="type">int</span> rear=<span class="number">0</span>;   <span class="comment">//设置队列的尾</span></span><br><span class="line">    <span class="built_in">queue</span>[rear++]=BT; </span><br><span class="line">    <span class="keyword">while</span>(front&lt;rear)&#123;  <span class="comment">//队列元素为空时退出循环</span></span><br><span class="line">Bintree tmp=<span class="built_in">queue</span>[front++]; <span class="comment">//读取根节点并出队</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,Bintree-&gt;data);</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;left!=<span class="literal">NULL</span>)&#123;      <span class="comment">//左节点入队</span></span><br><span class="line"><span class="built_in">queue</span>[rear++]=tmp-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;right!=<span class="literal">NULL</span>)&#123;  <span class="comment">//右节点入队</span></span><br><span class="line"><span class="built_in">queue</span>[rear++]=tmp-&gt;right; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="二叉树遍历的实际应用"><a href="#二叉树遍历的实际应用" class="headerlink" title="#二叉树遍历的实际应用"></a>#二叉树遍历的实际应用</h4><h5 id="求二叉树的高度"><a href="#求二叉树的高度" class="headerlink" title="求二叉树的高度"></a>求二叉树的高度</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">height</span><span class="params">(Bintree BT)</span>&#123;</span><br><span class="line"><span class="type">int</span> HL,HR,MAXH;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">    HL = height(BT-&gt;left); <span class="comment">//左树的深度</span></span><br><span class="line">    HR = height(BT-&gt;right); <span class="comment">//右树的深度</span></span><br><span class="line">        MAXH=HL&gt;HR?HL:HR; <span class="comment">//该节点向下的最大深度</span></span><br><span class="line">        <span class="keyword">return</span> MAXH+<span class="number">1</span>;  <span class="comment">//最大深度加上这层</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;hr&gt;
+&lt;p&gt;简单介绍二叉树&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>哈希表</title>
+    <link href="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    <id>http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/</id>
+    <published>2022-04-15T03:13:42.720Z</published>
+    <updated>2022-04-15T05:40:39.946Z</updated>
+    
+    <content type="html"><![CDATA[<hr><hr><hr><p>简单介绍哈希表</p><span id="more"></span><h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p><p><img src="/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;p&gt;简单介绍哈希表&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
