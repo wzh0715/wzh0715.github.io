@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>图的基础知识</title>
+    <url>/2022/04/21/%E5%9B%BE/</url>
+    <content><![CDATA[<p>图的遍历，最小生成树，最短路径，拓扑排序</p>
+<span id="more"></span>
+
+<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><h5 id="深度优先算法："><a href="#深度优先算法：" class="headerlink" title="深度优先算法："></a>深度优先算法：</h5><p>1.建立访问标记数组，标记节点是否已经遍历过</p>
+<p>2.从初始起点出发，一直访问邻接的未被遍历的任一顶点，至不能再访问时回溯</p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树的遍历</title>
     <url>/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<hr>
@@ -64,6 +80,22 @@
 ]]></content>
       <categories>
         <category>程序员的自我修养</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>辗转相除法</title>
+    <url>/2022/04/22/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/</url>
+    <content><![CDATA[<p>求最大公约数和最小公倍数</p>
+<span id="more"></span>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//求最小公约数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,gcd(a,b)); <span class="comment">//最小公约数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a*b/gcd(a,b)); <span class="comment">//最小gong&#x27;be</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
