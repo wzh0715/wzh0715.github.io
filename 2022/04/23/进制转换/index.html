@@ -22,22 +22,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="简单介绍哈希表">
+  <meta name="description" content="数的进制转换(2-16位)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哈希表">
-<meta property="og:url" content="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
+<meta property="og:title" content="进制转换">
+<meta property="og:url" content="http://example.com/2022/04/23/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/index.html">
 <meta property="og:site_name" content="BLOG">
-<meta property="og:description" content="简单介绍哈希表">
+<meta property="og:description" content="数的进制转换(2-16位)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg">
-<meta property="article:published_time" content="2022-04-15T03:13:42.720Z">
-<meta property="article:modified_time" content="2022-04-15T05:40:39.946Z">
+<meta property="article:published_time" content="2022-04-23T07:34:35.736Z">
+<meta property="article:modified_time" content="2022-04-23T08:05:21.928Z">
 <meta property="article:author" content="wzh">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="进制转换">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg">
 
-<link rel="canonical" href="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/">
+<link rel="canonical" href="http://example.com/2022/04/23/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>哈希表 | BLOG</title>
+  <title>进制转换 | BLOG</title>
   
 
 
@@ -199,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/23/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/2.jpg">
@@ -212,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          哈希表
+          进制转换
         </h1>
 
         <div class="post-meta">
@@ -223,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-04-15 11:13:42 / 修改时间：13:40:39" itemprop="dateCreated datePublished" datetime="2022-04-15T11:13:42+08:00">2022-04-15</time>
+              <time title="创建时间：2022-04-23 15:34:35 / 修改时间：16:05:21" itemprop="dateCreated datePublished" datetime="2022-04-23T15:34:35+08:00">2022-04-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +229,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">小技巧</span></a>
                 </span>
             </span>
 
@@ -248,7 +246,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>24</span>
+              <span>623</span>
             </span>
 
         </div>
@@ -260,14 +258,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<hr>
-<hr>
-<p>简单介绍哈希表</p>
+        <p>数的进制转换(2-16位)</p>
 <span id="more"></span>
 
-<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p>
-<p><img src="/images/background.jpg" data-original="/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将输入的数转化为十进制</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">TransToTen</span><span class="params">(<span class="type">char</span> a[],<span class="type">int</span> b)</span>&#123; <span class="comment">//a为数，b为该数的进制</span></span><br><span class="line">    <span class="type">int</span> len,total;</span><br><span class="line">    <span class="type">int</span> num; num记录每一位上的数</span><br><span class="line">   	total=<span class="number">0</span>;</span><br><span class="line">	len=<span class="built_in">strlen</span>(a);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i]&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;a[i]&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">			num = a[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;a[i]&lt;=<span class="string">&#x27;F&#x27;</span>)&#123;</span><br><span class="line">            num = a[i] - <span class="string">&#x27;A&#x27;</span> + <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        total = total*b + num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将十进制转化为其他进制</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">transport</span><span class="params">(<span class="type">int</span> m , <span class="type">int</span> c)</span>&#123;</span><br><span class="line">	<span class="type">int</span> tmp;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="keyword">if</span>(m)&#123;</span><br><span class="line">		transport(m/c,b);</span><br><span class="line">        n=m%b;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">10</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,n);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,n+<span class="number">55</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -296,7 +291,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+              <a href="/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" rel="tag"># 进制转换</a>
           </div>
 
         
@@ -304,10 +299,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/04/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="next" title="二叉树的遍历">
-      二叉树的遍历 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/04/22/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/" rel="prev" title="辗转相除法">
+      <i class="fa fa-chevron-left"></i> 辗转相除法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/23/%E5%A4%A7%E6%95%B0/" rel="next" title="大数的处理">
+      大数的处理 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -367,7 +365,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">#哈希表的代码实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -383,20 +380,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -412,6 +409,17 @@
       </div>
 
   <div id="sidebar-dimmer"></div>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+              <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0/" rel="tag">大数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" rel="tag">进制转换</a><span class="tag-list-count">1</span></li></ul>
+              </canvas>
+          </div>
+        </div>
       
 
     </div>
@@ -441,7 +449,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">7k</span>
 </div>
 
         
