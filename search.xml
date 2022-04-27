@@ -48,6 +48,22 @@
       </tags>
   </entry>
   <entry>
+    <title>图的基础知识</title>
+    <url>/2022/04/21/map/</url>
+    <content><![CDATA[<p>图的遍历，最小生成树，最短路径，拓扑排序</p>
+<span id="more"></span>
+
+<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><h5 id="深度优先算法："><a href="#深度优先算法：" class="headerlink" title="深度优先算法："></a>深度优先算法：</h5><p>1.建立访问标记数组，标记节点是否已经遍历过</p>
+<p>2.从初始起点出发，一直访问邻接的未被遍历的任一顶点，至不能再访问时回溯</p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>排序方法</title>
     <url>/2022/04/25/sort/</url>
     <content><![CDATA[<p>几种排序方法：快排，归并排序，堆排序，希尔排序</p>
@@ -67,22 +83,6 @@
       </categories>
       <tags>
         <tag>排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图的基础知识</title>
-    <url>/2022/04/21/%E5%9B%BE/</url>
-    <content><![CDATA[<p>图的遍历，最小生成树，最短路径，拓扑排序</p>
-<span id="more"></span>
-
-<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><h5 id="深度优先算法："><a href="#深度优先算法：" class="headerlink" title="深度优先算法："></a>深度优先算法：</h5><p>1.建立访问标记数组，标记节点是否已经遍历过</p>
-<p>2.从初始起点出发，一直访问邻接的未被遍历的任一顶点，至不能再访问时回溯</p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>图</tag>
       </tags>
   </entry>
   <entry>
