@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>哈希表</title>
+    <url>/2022/04/15/hash/</url>
+    <content><![CDATA[<p>简单介绍哈希表</p>
+<span id="more"></span>
+
+<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p>
+<p><img src="/2022/04/15/hash/1.jpg"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>哈希表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树的遍历</title>
     <url>/2022/04/15/BinaryTree/</url>
     <content><![CDATA[<hr>
@@ -32,41 +48,6 @@
       </tags>
   </entry>
   <entry>
-    <title>哈希表</title>
-    <url>/2022/04/15/hash/</url>
-    <content><![CDATA[<p>简单介绍哈希表</p>
-<span id="more"></span>
-
-<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p>
-<p><img src="/2022/04/15/hash/1.jpg"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>哈希表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图的基础知识第二期</title>
-    <url>/2022/04/28/map_2/</url>
-    <content><![CDATA[<p>本期讲述图的最小生成树，拓扑排序</p>
-<span id="more"></span>
-
-<h4 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h4><h6 id="prim算法"><a href="#prim算法" class="headerlink" title="prim算法"></a>prim算法</h6><p>最小生成树集合</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">assit_array</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> start; <span class="comment">//边起点</span></span><br><span class="line">    <span class="type">int</span> end;   <span class="comment">//边终点</span></span><br><span class="line">    <span class="type">int</span> weight; <span class="comment">//边权重</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//邻接矩阵表示</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">MinSpanTree_prim</span><span class="params">(Graph g,<span class="type">int</span> begin)</span>&#123;</span><br><span class="line">    <span class="comment">//close_edge数组记录到达某个节点的权重最大的边</span></span><br><span class="line">	assit_array* close_edge = (assit_array *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(assit_array)*g.ver_num);</span><br><span class="line">	<span class="comment">//初始化close_edge</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;g.ver_num;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i != begin<span class="number">-1</span>)&#123;</span><br><span class="line">			close_edge[i].start = begin<span class="number">-1</span>;</span><br><span class="line">            close_edge[i].end = i;</span><br><span class="line">            close_edge[i].weight = g.edge[begin<span class="number">-1</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//起点close_edge的权值设为-1，表示加入集合中</span></span><br><span class="line">    close_edge[begin<span class="number">-1</span>].weight=<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//将其他点加入集合中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;g.ver_num;i++)&#123;</span><br><span class="line">		<span class="type">int</span> min,index;</span><br><span class="line">        <span class="comment">//找到close_edge数组中权重最小的边</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;g.ver_num;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(close_edge[j].weight != <span class="number">-1</span> &amp;&amp; close_edge[j].weight &lt; min)&#123;</span><br><span class="line">				min = close_edge[j].weight;</span><br><span class="line">                index = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       	<span class="comment">//将找到的权重最小的边加入及集合中</span></span><br><span class="line">        close_edge[index].weight = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//输出该边，此处省略</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//集合加入新的节点后，更新close_edge数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;i&lt;g.ver_num;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(g.edge[close_edge[index].end][j] &lt; close_edge[j].weight)&#123;</span><br><span class="line">				close_edge[j].weight = g.edge[close_edge[index].end][j];</span><br><span class="line">                close_edge[j].start = close_edge[index].end;</span><br><span class="line">                close_edge[j].end = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>图</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图的基础知识</title>
     <url>/2022/04/21/map/</url>
     <content><![CDATA[<p>图的遍历，最短路径</p>
@@ -85,7 +66,7 @@
 <h6 id="迪杰斯特拉算法"><a href="#迪杰斯特拉算法" class="headerlink" title="迪杰斯特拉算法"></a>迪杰斯特拉算法</h6><p>标记数组visited[]区分已加入最短路径集合（visited[i]=1）和未加入最短路径集合的元素（visited[i]=0）、</p>
 <p>路径数组distance[]表示未加入节点i到最短路径集合的最短距离</p>
 <p>初始时最短路径集合为源点1</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) distence[i]=edge[<span class="number">1</span>][i];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) visited[i]=<span class="number">0</span>;</span><br><span class="line">visited[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> next;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;  <span class="comment">//每次循环将一个节点加入最短路径集合中，共n-1次循环</span></span><br><span class="line">	tem=inf;</span><br><span class="line">    <span class="comment">//循环找到到集合路径最短的点，记录为next</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(visited[j]==<span class="number">0</span> &amp;&amp; distance[j])&#123;</span><br><span class="line">			tem = distance[j];</span><br><span class="line">            next = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将该点加入最短路径集合</span></span><br><span class="line">    visited[next] = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//该点加入集合后将distance数组更新，使得未加入集合的点到集合的路径保持最短</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=n;k++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(visited[k]==<span class="number">0</span> &amp;&amp; distance[k]&gt;distance[next]+edge[next][k] &amp;&amp; edge[next][k]!=inf)&#123;</span><br><span class="line">			distance[k] = distance[next]+edge[next][k]; <span class="comment">//若集合加入新节点后点k到集合最短路径改变则更新</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) distance[i]=edge[<span class="number">1</span>][i];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) visited[i]=<span class="number">0</span>;</span><br><span class="line">visited[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> next;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;  <span class="comment">//每次循环将一个节点加入最短路径集合中，共n-1次循环</span></span><br><span class="line">	tem=inf;</span><br><span class="line">    <span class="comment">//循环找到到集合路径最短的点，记录为next</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(visited[j]==<span class="number">0</span> &amp;&amp; distance[j])&#123;</span><br><span class="line">			tem = distance[j];</span><br><span class="line">            next = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将该点加入最短路径集合</span></span><br><span class="line">    visited[next] = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//该点加入集合后将distance数组更新，使得未加入集合的点到集合的路径保持最短</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=n;k++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(visited[k]==<span class="number">0</span> &amp;&amp; distance[k]&gt;distance[next]+edge[next][k] &amp;&amp; edge[next][k]!=inf)&#123;</span><br><span class="line">			distance[k] = distance[next]+edge[next][k]; <span class="comment">//若集合加入新节点后点k到集合最短路径改变则更新</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h6 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h6><p>distance[]数组表示节点i到源点的最短距离</p>
 <p>定理：在一个含有n个顶点的图中，任意两点之间的最短路径最多包含n-1条边</p>
@@ -98,6 +79,43 @@
       </categories>
       <tags>
         <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图的基础知识第二期</title>
+    <url>/2022/04/28/map_2/</url>
+    <content><![CDATA[<p>本期讲述图的最小生成树，拓扑排序</p>
+<span id="more"></span>
+
+<h4 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h4><h6 id="prim算法"><a href="#prim算法" class="headerlink" title="prim算法"></a>prim算法</h6><p>最小生成树集合</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">assit_array</span>&#123;</span> <span class="comment">//shu</span></span><br><span class="line">	<span class="type">int</span> start; <span class="comment">//边起点</span></span><br><span class="line">    <span class="type">int</span> end;   <span class="comment">//边终点</span></span><br><span class="line">    <span class="type">int</span> weight; <span class="comment">//边权重</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//邻接矩阵表示</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">MinSpanTree_prim</span><span class="params">(Graph g,<span class="type">int</span> begin)</span>&#123;</span><br><span class="line">    <span class="comment">//close_edge数组记录到达某个节点的权重最大的边</span></span><br><span class="line">	assit_array* close_edge = (assit_array *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(assit_array)*g.ver_num);</span><br><span class="line">	<span class="comment">//初始化close_edge</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;g.ver_num;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i != begin<span class="number">-1</span>)&#123;</span><br><span class="line">			close_edge[i].start = begin<span class="number">-1</span>;</span><br><span class="line">            close_edge[i].end = i;</span><br><span class="line">            close_edge[i].weight = g.edge[begin<span class="number">-1</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//起点close_edge的权值设为-1，表示加入集合中</span></span><br><span class="line">    close_edge[begin<span class="number">-1</span>].weight=<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//将其他点加入集合中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;g.ver_num;i++)&#123;</span><br><span class="line">		<span class="type">int</span> min,index;</span><br><span class="line">        <span class="comment">//找到close_edge数组中权重最小的边</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;g.ver_num;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(close_edge[j].weight != <span class="number">-1</span> &amp;&amp; close_edge[j].weight &lt; min)&#123;</span><br><span class="line">				min = close_edge[j].weight;</span><br><span class="line">                index = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       	<span class="comment">//将找到的权重最小的边加入及集合中</span></span><br><span class="line">        close_edge[index].weight = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//输出该边，此处省略</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//集合加入新的节点后，更新close_edge数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;i&lt;g.ver_num;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(g.edge[close_edge[index].end][j] &lt; close_edge[j].weight)&#123;</span><br><span class="line">				close_edge[j].weight = g.edge[close_edge[index].end][j];</span><br><span class="line">                close_edge[j].start = close_edge[index].end;</span><br><span class="line">                close_edge[j].end = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>图</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数的处理</title>
+    <url>/2022/04/23/%E5%A4%A7%E6%95%B0/</url>
+    <content><![CDATA[<p>大数的假发，乘法与比较</p>
+<span id="more"></span>
+
+<p>大数的存储：字符串</p>
+<p>大数加法：位与位相加并判断进位</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span>* <span class="title function_">add</span><span class="params">(<span class="type">char</span> s1[],chars2[])</span>&#123;</span><br><span class="line">	len_1 = <span class="built_in">strlen</span>(s1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>小技巧</category>
+      </categories>
+      <tags>
+        <tag>大数</tag>
       </tags>
   </entry>
   <entry>
@@ -123,24 +141,6 @@
       </tags>
   </entry>
   <entry>
-    <title>大数的处理</title>
-    <url>/2022/04/23/%E5%A4%A7%E6%95%B0/</url>
-    <content><![CDATA[<p>大数的假发，乘法与比较</p>
-<span id="more"></span>
-
-<p>大数的存储：字符串</p>
-<p>大数加法：位与位相加并判断进位</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span>* <span class="title function_">add</span><span class="params">(<span class="type">char</span> s1[],chars2[])</span>&#123;</span><br><span class="line">	len_1 = <span class="built_in">strlen</span>(s1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>小技巧</category>
-      </categories>
-      <tags>
-        <tag>大数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>程序员的自我修养-栈</title>
     <url>/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
     <content><![CDATA[<hr>
@@ -157,6 +157,24 @@
       </categories>
       <tags>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识线段树</title>
+    <url>/2022/04/29/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
+    <content><![CDATA[<p>线段树的基础知识</p>
+<span id="more"></span>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化(求线段和)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">build</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;  </span><br><span class="line">    tree[i].l = l;</span><br><span class="line">    tree[i].r = r;</span><br><span class="line">    <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		tree[i].</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单点修改，区间</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>线段树</tag>
       </tags>
   </entry>
   <entry>
