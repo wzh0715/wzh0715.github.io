@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>哈希表</title>
-    <url>/2022/04/15/hash/</url>
-    <content><![CDATA[<p>简单介绍哈希表</p>
-<span id="more"></span>
-
-<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p>
-<p><img src="/2022/04/15/hash/1.jpg"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>哈希表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树的遍历</title>
     <url>/2022/04/15/BinaryTree/</url>
     <content><![CDATA[<hr>
@@ -45,6 +29,22 @@
       </categories>
       <tags>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>哈希表</title>
+    <url>/2022/04/15/hash/</url>
+    <content><![CDATA[<p>简单介绍哈希表</p>
+<span id="more"></span>
+
+<h4 id="哈希表的代码实现"><a href="#哈希表的代码实现" class="headerlink" title="#哈希表的代码实现"></a>#哈希表的代码实现</h4><p>哈希表的常见方法</p>
+<p><img src="/2022/04/15/hash/1.jpg"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>哈希表</tag>
       </tags>
   </entry>
   <entry>
@@ -92,30 +92,11 @@
 
 ]]></content>
       <categories>
-        <category>图</category>
-        <category>算法</category>
+        <category>数据结构</category>
       </categories>
       <tags>
         <tag>数据结构</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大数的处理</title>
-    <url>/2022/04/23/%E5%A4%A7%E6%95%B0/</url>
-    <content><![CDATA[<p>大数的假发，乘法与比较</p>
-<span id="more"></span>
-
-<p>大数的存储：字符串</p>
-<p>大数加法：位与位相加并判断进位</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span>* <span class="title function_">add</span><span class="params">(<span class="type">char</span> s1[],chars2[])</span>&#123;</span><br><span class="line">	len_1 = <span class="built_in">strlen</span>(s1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>小技巧</category>
-      </categories>
-      <tags>
-        <tag>大数</tag>
       </tags>
   </entry>
   <entry>
@@ -141,6 +122,24 @@
       </tags>
   </entry>
   <entry>
+    <title>大数的处理</title>
+    <url>/2022/04/23/%E5%A4%A7%E6%95%B0/</url>
+    <content><![CDATA[<p>大数的假发，乘法与比较</p>
+<span id="more"></span>
+
+<p>大数的存储：字符串</p>
+<p>大数加法：位与位相加并判断进位</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span>* <span class="title function_">add</span><span class="params">(<span class="type">char</span> s1[],chars2[])</span>&#123;</span><br><span class="line">	len_1 = <span class="built_in">strlen</span>(s1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>大数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序员的自我修养-栈</title>
     <url>/2022/04/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
     <content><![CDATA[<hr>
@@ -160,24 +159,6 @@
       </tags>
   </entry>
   <entry>
-    <title>初识线段树</title>
-    <url>/2022/04/29/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
-    <content><![CDATA[<p>线段树的基础知识</p>
-<span id="more"></span>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化(求线段和)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">build</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;  </span><br><span class="line">    tree[i].l = l;</span><br><span class="line">    tree[i].r = r;</span><br><span class="line">    <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		tree[i].</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单点修改，区间</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据结构</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>线段树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>辗转相除法</title>
     <url>/2022/04/22/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/</url>
     <content><![CDATA[<p>求最大公约数和最小公倍数</p>
@@ -187,10 +168,27 @@
 
 ]]></content>
       <categories>
-        <category>数据结构</category>
+        <category>算法</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识线段树</title>
+    <url>/2022/04/29/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
+    <content><![CDATA[<p>线段树的基础知识</p>
+<span id="more"></span>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化(求线段和)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">build</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;  </span><br><span class="line">    tree[i].l = l;</span><br><span class="line">    tree[i].r = r;</span><br><span class="line">    <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		tree[i].</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单点修改，区间</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>线段树</tag>
       </tags>
   </entry>
   <entry>
@@ -203,7 +201,7 @@
 
 ]]></content>
       <categories>
-        <category>小技巧</category>
+        <category>算法</category>
       </categories>
       <tags>
         <tag>进制转换</tag>
